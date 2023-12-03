@@ -14,14 +14,34 @@ public class SystemNotificationService{
 	@Autowired
 	private EmailService emailService;
 	
+	static final String MENSAGEM_AVISO = "\n\n ** E-mail de teste enviado pelo sistema desenvolvido para a "
+										+ "disciplina de Desenvolvimento de Aplicações Distribuidas, quaisquer informações enviadas podem "
+										+ "ser desconsideradas servindo somente para testes da funcionalidade. **";
+	
+	/*
+	* Método responsável por consumir as mensagens do EventHub
+	*/
 	@KafkaListener(topics = "${topics.subscriber}")
 	public void receiveMessage(String message)
 	{
-		// Implementar logica para acionar o envio de e-mail **
+		String[] dados = message.split(";");
 		
-		//emailService.sendEmail("gabrielvitogalo2@gmail.com", "TESTE ENVIO SISTEMA", message);
-		
-		//Temporario para teste
-		System.out.println("Consumer Message: "+ message);
+		if(dados.length == 4)
+		{
+			String usuario = dados[0];
+			String email = dados[1];
+			String assunto = dados[2];
+			String mensagem = dados[3];
+			
+			// Envia o e-mail de notificação para o e-mail do usuário
+			emailService.sendEmail(email, assunto + " - " + usuario, message + MENSAGEM_AVISO);
+			System.out.println("Mensagem recebida e enviada com sucesso!");
+		}
+		else 
+		{
+			//Temporario para teste
+			System.out.println("Mensagem recebida no formato errado!");
+			System.out.println("** Message: "+ message);
+		}
 	}
 }

@@ -15,35 +15,23 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-	/**
-	@Autowired
-	private JavaMailSender mailSender;
 	
-	@Bean
-    public JavaMailSender getJavaMailSender() {
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        // Set up Gmail config
-        mailSender.setHost("${email.sender.host}");
-        mailSender.setPort(2525);
-
-        // Set up email config (using udeesa email)
-        mailSender.setUsername("${email.sender.user}");
-        mailSender.setPassword("${email.sender.password}");
-
-        Properties props = mailSender.getJavaMailProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.debug", "${email.sender.debug}");
-        return mailSender;
-    }
+	private final JavaMailSender mailSender;
+	
+	// E-mail que será utilizado para enviar as mensagens
+	private static final String EMAIL_ENVIO = "gabriel.guimaraes.1302796@sga.pucminas.br";
+	
+	public EmailService(final JavaMailSender mailSender)
+	{
+		this.mailSender = mailSender;
+	}
 	
 	public void sendEmail(String toEmail, String subject, String body)
 	{
 		try 
 		{
 			SimpleMailMessage message = new SimpleMailMessage();
-			message.setFrom("gabriel.guimaraes.1302796@sga.pucminas.br");
+			message.setFrom(EMAIL_ENVIO);
 			message.setTo(toEmail);
 			message.setSubject(subject);
 			message.setText(body);
@@ -57,6 +45,4 @@ public class EmailService {
 			throw new IllegalStateException("failed to send email");
 		}
 	}
-	
-	**/
 }

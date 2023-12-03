@@ -18,8 +18,17 @@ spring:
 topics:
   subscriber: app-receitas
   
-email.sender:
+spring.mail:
  host: mail.smtp2go.com
- debug: true
- user: sga.pucminas.br
+ port: 2525
+ username: sga.pucminas.br
  password: nIHaSNAZSfZIAjwp
+ properties:
+  mail:
+   smtp:
+    auth: true
+    socketFactory:
+     port: 465
+     class: javax.net.ssl.SSLSocketFactory
+ 
+ 
