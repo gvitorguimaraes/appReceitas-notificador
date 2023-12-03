@@ -7,7 +7,9 @@ Na versão atual as notificações são enviadas por e-mail inicialmente somente
 
 ### Formato da mensagem
 
-> [Nome do usuário];[E-mail];[Assunto];[Mensagem] (Os dados são separados por ';' e sem espaço entre eles.)
+> [Nome do usuário];[E-mail];[Assunto];[Mensagem]
+
+(Os dados são separados por ';' e sem espaço entre eles.)
 
 ### Arquitetura
 
