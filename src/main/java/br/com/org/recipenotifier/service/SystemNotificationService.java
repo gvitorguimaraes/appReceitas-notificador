@@ -34,7 +34,7 @@ public class SystemNotificationService{
 			String mensagem = dados[3];
 			
 			// Envia o e-mail de notificação para o e-mail do usuário
-			emailService.sendEmail(email, assunto + " - " + usuario, message + MENSAGEM_AVISO);
+			emailService.sendEmail(email, assunto + " - " + usuario, mensagem + MENSAGEM_AVISO);
 			System.out.println("Mensagem recebida e enviada com sucesso!");
 		}
 		else 
