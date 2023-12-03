@@ -26,5 +26,7 @@ O sistema foi desenvolvido utilizando a linguagem Java 17 com SpringBoot 3.2.0, 
 - Clonar ou fazer o download do projeto
 - Importar como um projeto Maven em alguma IDE (Eclipse, IntelliJ, NetBeans, etc)
 - Definir a classe 'RecipeNotifierApplication' para executar o sistema.
+- Alterar as configurações de conexão com o EventHub no arquivo 'application.yml'
+- Alterar e-mail de envio na variável constante 'EMAIL_ENVIO' no arquivo 'EmailService'.
 
 - Ao ser carregado, o sistema ficara ativo e escutando na conexão com o EventHubs da Azure, sempre que houver uma mensagem ele irá ler e enviar o e-mail.
