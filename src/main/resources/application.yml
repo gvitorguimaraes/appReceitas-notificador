@@ -4,9 +4,9 @@ server:
  port: 8080
 spring:
  kafka:
-  bootstrap-servers: trabalho-receitas.servicebus.windows.net:9093
+  bootstrap-servers: "link-do-broker"
   properties:
-   sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://trabalho-receitas.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=lB3cAFoIuKjkKoyVLI48YQvqNj8n6U5oo+AEhLeClIg=";
+   sasl.jaas.config: "senha-de-acesso"
    sasl.mechanism: PLAIN
    security.protocol: SASL_SSL
   consumer:
@@ -16,13 +16,13 @@ spring:
    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
  
 topics:
-  subscriber: app-receitas
+  subscriber: "topico"
   
 spring.mail:
- host: mail.smtp2go.com
- port: 2525
- username: sga.pucminas.br
- password: nIHaSNAZSfZIAjwp
+ host: 
+ port: 
+ username: "username"
+ password: "senha-smtp"
  properties:
   mail:
    smtp:

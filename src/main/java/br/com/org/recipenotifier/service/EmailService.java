@@ -14,7 +14,7 @@ public class EmailService {
 	private final JavaMailSender mailSender;
 	
 	// E-mail que será utilizado para enviar as mensagens
-	private static final String EMAIL_ENVIO = "gabriel.guimaraes.1302796@sga.pucminas.br";
+	private static final String EMAIL_ENVIO = "<seu e-mail aqui>";
 	
 	public EmailService(final JavaMailSender mailSender)
 	{
@@ -37,7 +37,7 @@ public class EmailService {
 		catch(Exception e)
 		{
 			System.out.println("Falha ao enviar o e-mail!");
-			throw new IllegalStateException("failed to send email");
+			throw new IllegalStateException("Falha ao enviar e-mail");
 		}
 	}
 }
